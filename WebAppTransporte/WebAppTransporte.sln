@@ -5,6 +5,8 @@ VisualStudioVersion = 17.5.33627.172
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAppTransporte", "WebAppTransporte\WebAppTransporte.csproj", "{BB0D6188-2279-4EF3-815D-A9D87E287A2E}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DatabaseTransporte", "DatabaseTransporte\DatabaseTransporte.sqlproj", "{BF52E880-7D1B-48F0-8CB0-A20AF120BB2B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,12 @@ Global
 		{BB0D6188-2279-4EF3-815D-A9D87E287A2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB0D6188-2279-4EF3-815D-A9D87E287A2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB0D6188-2279-4EF3-815D-A9D87E287A2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF52E880-7D1B-48F0-8CB0-A20AF120BB2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF52E880-7D1B-48F0-8CB0-A20AF120BB2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF52E880-7D1B-48F0-8CB0-A20AF120BB2B}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{BF52E880-7D1B-48F0-8CB0-A20AF120BB2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF52E880-7D1B-48F0-8CB0-A20AF120BB2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF52E880-7D1B-48F0-8CB0-A20AF120BB2B}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
