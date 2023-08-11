@@ -49,6 +49,4 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
         Task<DestinosXEmpresas> ConsultarPorId(long idDestinoXEmpresa);
         Task Borrar(long idDestinoXEmpresa);
     }
-    {
-    }
 }

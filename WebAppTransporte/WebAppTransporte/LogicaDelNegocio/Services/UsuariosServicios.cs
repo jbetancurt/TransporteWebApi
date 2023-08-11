@@ -49,6 +49,4 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
         Task<Usuarios> ConsultarPorId(long idUsuario);
         Task Borrar(long idUsuario);
     }
-    {
-    }
 }
