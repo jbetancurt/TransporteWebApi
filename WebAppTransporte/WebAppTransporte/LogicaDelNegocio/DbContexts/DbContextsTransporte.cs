@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using WebAppTransporte.LogicaDelNegocio.Entidades;
+using WebAppTransporte.LogicaDelNegocio.Entidades.Autenticacion;
 
 namespace WebAppTransporte.LogicaDelNegocio.DbContexts
 {
@@ -49,7 +50,8 @@ namespace WebAppTransporte.LogicaDelNegocio.DbContexts
         public DbSet<SedesEmpleados> TSedesEmpleados { get; set; }
         public DbSet<Usuarios> TUsuarios { get; set; }
         public DbSet<Vehiculos> TVehiculos { get; set; }
-        public DbSet<VehiculosXEmpresas> TVehiculosXEmpresas { get; set; }
+		public DbSet<UsuariosLogeados> TUsuariosLogeados { get; set; }
+		public DbSet<VehiculosXEmpresas> TVehiculosXEmpresas { get; set; }
         public DbSet<Plantillas_Ofertas> TPlantillas_Ofertas { get; set; }
         public DbSet<Plantillas_RequisitosXOfertas> TPlantillas_RequisitosXOfertas { get; set; }
     }

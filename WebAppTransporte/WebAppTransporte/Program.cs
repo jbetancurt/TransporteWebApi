@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using WebAppTransporte.LogicaDelNegocio.DbContexts;
 using WebAppTransporte.LogicaDelNegocio.Entidades;
 using WebAppTransporte.LogicaDelNegocio.Services;
+using WebAppTransporte.LogicaDelNegocio.Services.Autenticacion;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -57,6 +58,7 @@ builder.Services.AddTransient<IRutasXVehiculosServicios, RutasXVehiculosServicio
 builder.Services.AddTransient<ISedesServicios, SedesServicios>();
 builder.Services.AddTransient<ISedesEmpleadosServicios, SedesEmpleadosServicios>();
 builder.Services.AddTransient<IUsuariosServicios, UsuariosServicios>();
+builder.Services.AddTransient<IUsuariosLogeadosService, UsuariosLogeadosService>();
 builder.Services.AddTransient<IVehiculosServicios, VehiculosServicios>();
 builder.Services.AddTransient<IVehiculosXEmpresasServicios, VehiculosXEmpresasServicios>();
 builder.Services.AddTransient<IPlantillas_OfertasServicios, Plantillas_OfertasServicios>();

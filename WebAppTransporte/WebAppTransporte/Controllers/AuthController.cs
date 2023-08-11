@@ -21,13 +21,13 @@ namespace WebAppTransporte.Controllers
 		public AuthController(IConfiguration configuration)
 		{
 			this.configuration = configuration;
-			this.AuthCodeEndPoint = configuration["OAuth:AuthCodeEndPoint"];
-			this.TokenEndPoint = configuration["OAuth:TokenEndPoint"];
-			this.ClientId = configuration["OAuth:ClientId"];
-			this.Secret = configuration["OAuth:Secret"];
-			this.Scope = configuration["OAuth:Scope"];
-			this.RedirectURI = configuration["OAuth:RedirectURI"];
-			this.API_EndPoint = configuration["OAuth:API_EndPoint"];
+			this.AuthCodeEndPoint = configuration["OAuth:AuthCodeEndPoint"] ?? "";
+			this.TokenEndPoint = configuration["OAuth:TokenEndPoint"] ?? "";
+			this.ClientId = configuration["OAuth:ClientId"] ?? "";
+			this.Secret = configuration["OAuth:Secret"] ?? "";
+			this.Scope = configuration["OAuth:Scope"] ?? "";
+			this.RedirectURI = configuration["OAuth:RedirectURI"] ?? "";
+			this.API_EndPoint = configuration["OAuth:API_EndPoint"] ?? "";
 		}
 		[HttpGet("getcode")]
 		public IActionResult GetCode()

@@ -112,5 +112,9 @@
     <Build Include="Plantillas\TOfertas.sql" />
     <Build Include="Plantillas\TRequisitosXOfertas.sql" />
     <Build Include="Plantillas\Plantillas.sql" />
+    <Build Include="Admin\TUsuariosLogeados.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="DatabaseTransporte.refactorlog" />
   </ItemGroup>
 </Project>
