@@ -49,6 +49,4 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
         Task<SedesEmpleados> ConsultarPorId(long idSedeEmpleado);
         Task Borrar(long idSedeEmpleado);
     }
-    {
-    }
 }

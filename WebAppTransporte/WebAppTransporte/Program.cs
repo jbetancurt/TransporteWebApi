@@ -57,6 +57,7 @@ builder.Services.AddTransient<ISedesServicios, SedesServicios>();
 builder.Services.AddTransient<ISedesEmpleadosServicios, SedesEmpleadosServicios>();
 builder.Services.AddTransient<IUsuariosServicios, UsuariosServicios>();
 builder.Services.AddTransient<IVehiculosServicios, VehiculosServicios>();
+builder.Services.AddTransient<IVehiculosXEmpresasServicios, VehiculosXEmpresasServicios>();
 builder.Services.AddTransient<IPlantillas_OfertasServicios, Plantillas_OfertasServicios>();
 builder.Services.AddTransient<IPlantillas_RequisitosXOfertasServicios, Plantillas_RequisitosXOfertasServicios>();
 

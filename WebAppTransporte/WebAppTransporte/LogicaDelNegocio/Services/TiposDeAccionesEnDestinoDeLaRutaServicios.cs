@@ -39,7 +39,7 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
             _dbcontext.TTiposDeAccionesEnDestinoDeLaRuta.Add(tiposDeAccionesEnDestinoDeLaRuta);
             _dbcontext.Entry(tiposDeAccionesEnDestinoDeLaRuta).State = EntityState.Modified;
             await _dbcontext.SaveChangesAsync();
-            return true
+            return true;
         }
     }
     public interface ITiposDeAccionesEnDestinoDeLaRutaServicios

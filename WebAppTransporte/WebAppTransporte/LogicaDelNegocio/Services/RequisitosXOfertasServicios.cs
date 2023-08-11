@@ -49,6 +49,4 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
         Task<RequisitosXOfertas> ConsultarPorId(long idRequisitoXOferta);
         Task Borrar(long idRequisitoXOferta);
     }
-    {
-    }
 }
