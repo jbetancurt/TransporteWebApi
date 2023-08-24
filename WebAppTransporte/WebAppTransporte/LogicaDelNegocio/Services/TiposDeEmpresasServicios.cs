@@ -41,6 +41,11 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
             await _dbcontext.SaveChangesAsync();
             return true;
         }
+
+        public async Task<object?> ConsultarTodos()
+        {
+            return await _dbcontext.TTiposDeEmpresas.ToListAsync();
+        }
     }
     public interface ITiposDeEmpresasServicios
     {
@@ -48,5 +53,6 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
         Task<bool> Editar(long idTipoDeEmpresa, TiposDeEmpresas tiposDeEmpresas);
         Task<TiposDeEmpresas> ConsultarPorId(long idTipoDeEmpresa);
         Task Borrar(long idTipoDeEmpresa);
+        Task<object?> ConsultarTodos();
     }
 }

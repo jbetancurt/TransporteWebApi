@@ -15,6 +15,7 @@ namespace WebAppTransporte.Controllers
 
             _tiposDeDocumentosServicios = tiposDeDocumentosServicios;
         }
+        
         [HttpGet]
         [Route("{id}")]
         public async Task<IActionResult> Get(int id)
@@ -22,6 +23,15 @@ namespace WebAppTransporte.Controllers
 
             return Ok(await _tiposDeDocumentosServicios.ConsultarPorId(id));
         }
+        
+        [HttpGet]
+        [Route("")]
+        public async Task<IActionResult> Todos()
+        {
+
+            return Ok(await _tiposDeDocumentosServicios.ListarTodos());
+        }
+        
         [HttpPut]
         [Route("{id}")]
         public async Task<IActionResult> Put(int id, [FromBody] TiposDeDocumentos obj)

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebAppTransporte.LogicaDelNegocio.Entidades
 {
-    [Table("TiposDeRoles", Schema = "Admin")]
+    [Table("TTiposDeRoles", Schema = "Admin")]
     public class TiposDeRoles
     {
         [Key]
