@@ -41,6 +41,11 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
             await _dbcontext.SaveChangesAsync();
             return true;
         }
+
+        public async Task<object?> ConsultarTodos()
+        {
+            return await _dbcontext.TTiposOrientacionesDeLaOferta.ToListAsync();
+        }
     }
     public interface ITiposOrientacionesDeLaOfertaServicios
     {
@@ -48,5 +53,6 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
         Task<bool> Editar(long idTipoOrientacionOferta, TiposOrientacionesDeLaOferta tiposOrientacionesDeLaOferta);
         Task<TiposOrientacionesDeLaOferta> ConsultarPorId(long idTipoOrientacionOferta);
         Task Borrar(long idTipoOrientacionOferta);
+        Task<object?> ConsultarTodos();
     }
 }

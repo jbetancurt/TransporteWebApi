@@ -41,6 +41,13 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
             await _dbcontext.SaveChangesAsync();
             return true;
         }
+
+        public async Task<List<TiposDeDocumentos>> ListarTodos()
+        {
+            var obj = await _dbcontext.TTiposDeDocumentos.ToListAsync();
+            return obj == null ? new List<TiposDeDocumentos>() : obj;
+
+        }
     }
     public interface ITiposDeDocumentosServicios
     {
@@ -48,5 +55,6 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
         Task<bool> Editar(long idTipoDeDocumento, TiposDeDocumentos tiposDeDocumentos);
         Task<TiposDeDocumentos> ConsultarPorId(long idTipoDeDocumento);
         Task Borrar(long idTipoDeDocumento);
+        Task<List<TiposDeDocumentos>> ListarTodos();
     }
 }

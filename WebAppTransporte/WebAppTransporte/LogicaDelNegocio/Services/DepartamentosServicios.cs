@@ -41,6 +41,12 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
             await _dbcontext.SaveChangesAsync();
             return true;
         }
+
+        public async Task<object?> ListarDepartamentos(int idPais)
+        {
+            return await _dbcontext.TDepartamentos.Where(x => x.idPais == idPais).ToListAsync();
+        }
+       
     }
     public interface IDepartamentosServicios
     {
@@ -48,5 +54,6 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
         Task<bool> Editar(long idDepartamento, Departamentos departamentos);
         Task<Departamentos> ConsultarPorId(long idDepartamento);
         Task Borrar(long idDepartamento);
+        Task<object?> ListarDepartamentos(int idPais);
     }
 }

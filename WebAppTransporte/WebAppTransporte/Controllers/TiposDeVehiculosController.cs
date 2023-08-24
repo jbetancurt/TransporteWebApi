@@ -22,6 +22,15 @@ namespace WebAppTransporte.Controllers
 
             return Ok(await _tiposDeVehiculosServicios.ConsultarPorId(id));
         }
+
+        [HttpGet]
+        [Route("")]
+        public async Task<IActionResult> GetAll()
+        {
+
+            return Ok(await _tiposDeVehiculosServicios.ConsultarTodos());
+        }
+
         [HttpPut]
         [Route("{id}")]
         public async Task<IActionResult> Put(int id, [FromBody] TiposDeVehiculos obj)

@@ -41,6 +41,12 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
             await _dbcontext.SaveChangesAsync();
             return true;
         }
+
+        public async Task<object?> ListarCiudades(int idDepartamento)
+        {
+            return await _dbcontext.TCiudades.Where(x => x.idDepartamento == idDepartamento).ToListAsync();
+        }
+
     }
     public interface ICiudadesServicios
     {
@@ -48,5 +54,6 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
         Task<bool> Editar(long idCiudad, Ciudades ciudades);
         Task<Ciudades> ConsultarPorId(long idCiudad);
         Task Borrar(long idCiudad);
+        Task<object?> ListarCiudades(int idDepartamento);
     }
 }

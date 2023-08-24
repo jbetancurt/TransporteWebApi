@@ -12,7 +12,7 @@ namespace WebAppTransporte.LogicaDelNegocio.Entidades
 		public string apellido2Persona { get; set; }
 		public string documentoDeIdentidadPersona { get; set; }
 		public long idTipoDeDocumentoPersona { get; set; }
-		public long correoPersona { get; set; }
+		public string correoPersona { get; set; }
 		public long telefonoPersona { get; set; }
 		public long telefonoOtroPersona { get; set; }
 	}

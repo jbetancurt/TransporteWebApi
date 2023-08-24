@@ -41,6 +41,12 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
             await _dbcontext.SaveChangesAsync();
             return true;
         }
+
+        public async Task<object?> ConsultarTodos()
+        {
+            return await _dbcontext.TTiposDeRequisitos.ToListAsync();
+        }
+
     }
     public interface ITiposDeRequisitosServicios
     {
@@ -48,5 +54,6 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
         Task<bool> Editar(long idTipoDeRequisito, TiposDeRequisitos tiposderequisitos);
         Task<TiposDeRequisitos> ConsultarPorId(long idTipoDeRequisito);
         Task Borrar(long idTipoDeRequisito);
+        Task<object?> ConsultarTodos();
     }
 }

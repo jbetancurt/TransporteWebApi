@@ -41,6 +41,11 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
             await _dbcontext.SaveChangesAsync();
             return true;
         }
+
+        public async Task<object?> ConsultarTodos()
+        {
+            return await _dbcontext.TTiposDePuntosDeControl.ToListAsync();
+        }
     }
     public interface ITiposDePuntosDeControlServicios
     {
@@ -48,5 +53,6 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
         Task<bool> Editar(long idTipoDePuntoDeControl, TiposDePuntosDeControl tiposDePuntosDeControl);
         Task<TiposDePuntosDeControl> ConsultarPorId(long idTipoDePuntoDeControl);
         Task Borrar(long idTipoDePuntoDeControl);
+        Task<object?> ConsultarTodos();
     }
 }

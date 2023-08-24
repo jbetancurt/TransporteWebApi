@@ -22,6 +22,15 @@ namespace WebAppTransporte.Controllers
 
             return Ok(await _ciudadesServicios.ConsultarPorId(id));
         }
+
+        [HttpGet]
+        [Route("ListarCiudades/{idDepartamento}")]
+        public async Task<IActionResult> ListarCiudades(int idDepartamento)
+        {
+
+            return Ok(await _ciudadesServicios.ListarCiudades(idDepartamento));
+        }
+
         [HttpPut]
         [Route("{id}")]
         public async Task<IActionResult> Put(int id, [FromBody] Ciudades obj)
