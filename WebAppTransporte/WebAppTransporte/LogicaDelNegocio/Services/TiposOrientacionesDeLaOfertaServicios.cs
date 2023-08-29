@@ -17,20 +17,22 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
         {
             _dbcontext.TTiposOrientacionesDeLaOferta.Add(tiposOrientacionesDeLaOferta);
             await _dbcontext.SaveChangesAsync();
-            return tiposOrientacionesDeLaOferta.idTipoOrientacionOferta;
+            return tiposOrientacionesDeLaOferta.idTipoOrientacionDeLaOferta;
             
         }
 
-        public async Task Borrar(long idTipoOrientacionOferta)
+        
+
+        public async Task Borrar(long idTipoOrientacionDeLaOferta)
         {
-            var obj = await _dbcontext.TTiposOrientacionesDeLaOferta.FirstOrDefaultAsync(x => x.idTipoOrientacionOferta == idTipoOrientacionOferta);
+            var obj = await _dbcontext.TTiposOrientacionesDeLaOferta.FirstOrDefaultAsync(x => x.idTipoOrientacionDeLaOferta == idTipoOrientacionDeLaOferta);
             _dbcontext.TTiposOrientacionesDeLaOferta.Remove(obj);
             await _dbcontext.SaveChangesAsync();
         }
 
-        public async Task<TiposOrientacionesDeLaOferta> ConsultarPorId(long idTipoOrientacionOferta)
+        public async Task<TiposOrientacionesDeLaOferta> ConsultarPorId(long idTipoOrientacionDeLaOferta)
         {
-            var obj = await _dbcontext.TTiposOrientacionesDeLaOferta.FirstOrDefaultAsync(x => x.idTipoOrientacionOferta == idTipoOrientacionOferta);
+            var obj = await _dbcontext.TTiposOrientacionesDeLaOferta.FirstOrDefaultAsync(x => x.idTipoOrientacionDeLaOferta == idTipoOrientacionDeLaOferta);
             return obj == null ? new TiposOrientacionesDeLaOferta() : obj;
         }
 
@@ -50,9 +52,9 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
     public interface ITiposOrientacionesDeLaOfertaServicios
     {
         Task<long> Agregar(TiposOrientacionesDeLaOferta tiposOrientacionesDeLaOferta);
-        Task<bool> Editar(long idTipoOrientacionOferta, TiposOrientacionesDeLaOferta tiposOrientacionesDeLaOferta);
-        Task<TiposOrientacionesDeLaOferta> ConsultarPorId(long idTipoOrientacionOferta);
-        Task Borrar(long idTipoOrientacionOferta);
+        Task<bool> Editar(long idTipoOrientacionDeLaOferta, TiposOrientacionesDeLaOferta tiposOrientacionesDeLaOferta);
+        Task<TiposOrientacionesDeLaOferta> ConsultarPorId(long idTipoOrientacionDeLaOferta);
+        Task Borrar(long idTipoOrientacionDeLaOferta);
         Task<object?> ConsultarTodos();
     }
 }
