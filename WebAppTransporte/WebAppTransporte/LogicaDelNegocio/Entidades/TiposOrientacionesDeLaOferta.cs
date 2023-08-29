@@ -7,7 +7,9 @@ namespace WebAppTransporte.LogicaDelNegocio.Entidades
     public class TiposOrientacionesDeLaOferta
     {
         [Key]
-        public long idTipoOrientacionOferta { get; set; }
-        public string nombreTipoOrientacionOferta { get; set; }
+        public long idTipoOrientacionDeLaOferta { get; set; }
+        public string nombreTipoOrientacionDeLaOferta { get; set; }
     }
 }
+
+ 
