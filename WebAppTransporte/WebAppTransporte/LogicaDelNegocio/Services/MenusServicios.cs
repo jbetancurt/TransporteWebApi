@@ -15,6 +15,11 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
 
         public async Task<long> Agregar(Menus menus)
         {
+            if (menus.idMenuPadre == 0)
+            {
+                  menus.idMenuPadre = null;
+            }
+            
             _dbcontext.TMenus.Add(menus);
             await _dbcontext.SaveChangesAsync();
             return menus.idMenu;
@@ -33,8 +38,17 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
             return obj == null ? new Menus() : obj;
         }
 
+        public async Task<object?> ConsultarTodos()
+        {
+            return await _dbcontext.TMenus.ToListAsync();
+        }
+
         public async Task<bool> Editar(long idMenu, Menus menus)
         {
+            if (menus.idMenuPadre == 0)
+            {
+                menus.idMenuPadre = null;
+            }
             _dbcontext.TMenus.Add(menus);
             _dbcontext.Entry(menus).State = EntityState.Modified;
             await _dbcontext.SaveChangesAsync();
@@ -46,6 +60,7 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
         Task<long> Agregar(Menus menus);
         Task<bool> Editar(long idMenu, Menus menus);
         Task<Menus> ConsultarPorId(long idmenu);
+        Task<object?> ConsultarTodos();
         Task Borrar(long idmenu);
     }
 }

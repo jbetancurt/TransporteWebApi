@@ -24,6 +24,13 @@ namespace WebAppTransporte.Controllers
         }
 
         [HttpGet]
+        [Route("")]
+        public async Task<IActionResult> GetAll()
+        {
+            return Ok(await _ciudadesServicios.ConsultarTodos());
+        }
+
+        [HttpGet]
         [Route("ListarCiudades/{idDepartamento}")]
         public async Task<IActionResult> ListarCiudades(int idDepartamento)
         {

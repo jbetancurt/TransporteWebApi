@@ -22,6 +22,14 @@ namespace WebAppTransporte.Controllers
 
             return Ok(await _rolXUsuariosServicios.ConsultarPorId(id));
         }
+
+        [HttpGet]
+        [Route("")]
+        public async Task<IActionResult> GetAll()
+        {
+            return Ok(await _rolXUsuariosServicios.ConsultarTodos());
+        }
+
         [HttpPut]
         [Route("{id}")]
         public async Task<IActionResult> Put(int id, [FromBody] RolXUsuarios obj)

@@ -22,6 +22,14 @@ namespace WebAppTransporte.Controllers
 
             return Ok(await _vehiculosServicios.ConsultarPorId(id));
         }
+
+        [HttpGet]
+        [Route("")]
+        public async Task<IActionResult> GetAll()
+        {
+            return Ok(await _vehiculosServicios.ConsultarTodos());
+        }
+
         [HttpPut]
         [Route("{id}")]
         public async Task<IActionResult> Put(int id, [FromBody] Vehiculos obj)
@@ -29,6 +37,7 @@ namespace WebAppTransporte.Controllers
 
             return Ok(await _vehiculosServicios.Editar(id, obj));
         }
+
         [HttpPost]
         [Route("")]
         public async Task<IActionResult> Post([FromBody] Vehiculos obj)
@@ -36,6 +45,7 @@ namespace WebAppTransporte.Controllers
 
             return Ok(await _vehiculosServicios.Agregar(obj));
         }
+
         [HttpDelete]
         [Route("{id}")]
         public async Task<IActionResult> Delete(int id)

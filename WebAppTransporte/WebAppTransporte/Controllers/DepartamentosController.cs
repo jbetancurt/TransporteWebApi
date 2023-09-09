@@ -30,10 +30,24 @@ namespace WebAppTransporte.Controllers
 
             return Ok(await _departamentosServicios.ListarDepartamentos(idPais));
         }
+
+        [HttpGet]
+        [Route("")]
+        public async Task<IActionResult> GetAll()
+        {
+
+            return Ok(await _departamentosServicios.ConsultarTodos());
+        }
         
+        [HttpGet]
+        [Route("listarporpais/{idPais}")]
+        public async Task<IActionResult> ListarPorPais(long idPais)
+        {
 
+            return Ok(await _departamentosServicios.ListarDepartamentos(idPais));
+        }
 
-    [HttpPut]
+        [HttpPut]
         [Route("{id}")]
         public async Task<IActionResult> Put(int id, [FromBody] Departamentos obj)
         {

@@ -34,6 +34,11 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
             return obj == null ? new Departamentos() : obj;
         }
 
+        public async Task<object?> ConsultarTodos()
+        {
+            return await _dbcontext.TDepartamentos.ToListAsync();
+        }
+
         public async Task<bool> Editar(long idDepartamento, Departamentos departamentos)
         {
             _dbcontext.TDepartamentos.Add(departamentos);
@@ -42,7 +47,7 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
             return true;
         }
 
-        public async Task<object?> ListarDepartamentos(int idPais)
+        public async Task<object?> ListarDepartamentos(long idPais)
         {
             return await _dbcontext.TDepartamentos.Where(x => x.idPais == idPais).ToListAsync();
         }
@@ -53,7 +58,8 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
         Task<long> Agregar(Departamentos departamentos);
         Task<bool> Editar(long idDepartamento, Departamentos departamentos);
         Task<Departamentos> ConsultarPorId(long idDepartamento);
+        Task<object?> ConsultarTodos();
         Task Borrar(long idDepartamento);
-        Task<object?> ListarDepartamentos(int idPais);
+        Task<object?> ListarDepartamentos(long idPais);
     }
 }
