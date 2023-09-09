@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [Admin].[TControlesXPuntos]
 (
-	idControlXPunto bigint not null,
+	idControlXPunto bigint identity(1,1) not null,
 	idTipoDeEmpresa bigint not null,
 	idAdjunto bigint null,
 	nombreControlXPunto varchar(200),

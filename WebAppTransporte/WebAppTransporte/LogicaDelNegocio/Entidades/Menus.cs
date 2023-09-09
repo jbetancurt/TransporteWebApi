@@ -8,7 +8,7 @@ namespace WebAppTransporte.LogicaDelNegocio.Entidades
     {
         [Key]
         public long idMenu { get; set; }
-        public long idMenuPadre { get; set; }
+        public long? idMenuPadre { get; set; }
         public string nombre { get; set; }
         public string nombreController { get; set; }
         public string nombreAction { get; set; }

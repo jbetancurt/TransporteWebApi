@@ -34,6 +34,11 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
             return obj == null ? new Paises() : obj;
         }
 
+        public async Task<object?> ConsultarTodos()
+        {
+            return await _dbcontext.TPaises.ToListAsync();
+        }
+
         public async Task<bool> Editar(long idPais, Paises paises)
         {
             _dbcontext.TPaises.Add(paises);
@@ -47,6 +52,7 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
         Task<long> Agregar(Paises paises);
         Task<bool> Editar(long idPais, Paises paises);
         Task<Paises> ConsultarPorId(long idPais);
+        Task<object?> ConsultarTodos();
         Task Borrar(long idPais);
     }
 }
