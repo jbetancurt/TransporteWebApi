@@ -34,6 +34,11 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
             return obj == null ? new RequisitosXOfertas() : obj;
         }
 
+        public async Task<object?> ConsultarTodos()
+        {
+            return await _dbcontext.TRequisitosXOfertas.ToListAsync();
+        }
+
         public async Task<bool> Editar(long idRequisitoXOferta, RequisitosXOfertas requisitosXOfertas)
         {
             _dbcontext.TRequisitosXOfertas.Add(requisitosXOfertas);
@@ -47,6 +52,7 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
         Task<long> Agregar(RequisitosXOfertas requisitosXOfertas);
         Task<bool> Editar(long idRequisitoXOferta, RequisitosXOfertas requisitosXOfertas);
         Task<RequisitosXOfertas> ConsultarPorId(long idRequisitoXOferta);
+        Task<object?> ConsultarTodos();
         Task Borrar(long idRequisitoXOferta);
     }
 }

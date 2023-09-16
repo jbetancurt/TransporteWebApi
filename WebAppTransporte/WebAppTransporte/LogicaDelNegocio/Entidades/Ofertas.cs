@@ -9,7 +9,7 @@ namespace WebAppTransporte.LogicaDelNegocio.Entidades
 		public long idDestinoInicio { get; set; }
 		public long idDestinoFin { get; set; }
 		public long idEmpresa { get; set; }
-		public long idTipoOferta { get; set; }
+		public long idTipoOrientacionDeLaOferta { get; set; }
 		public string tituloOferta { get; set; }
 		public string descripcionOferta { get; set; }
 		public decimal altoOferta { get; set; }
@@ -19,7 +19,7 @@ namespace WebAppTransporte.LogicaDelNegocio.Entidades
 		public decimal valorXToneladaOferta { get; set; }
 		public DateTime fechaInicialOferta { get; set; }
 		public DateTime fechaFinalOferta { get; set; }
-		public DateTime horaInicialOferta { get; set; }
+		public string horaInicialOferta { get; set; }
 		public bool estadoOferta { get; set; }
     }
 }

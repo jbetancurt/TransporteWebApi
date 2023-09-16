@@ -34,6 +34,11 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
             return obj == null ? new RolesXEmpresas() : obj;
         }
 
+        public async Task<object?> ConsultarTodos()
+        {
+            return await _dbcontext.TRolesXEmpresas.ToListAsync();
+        }
+
         public async Task<bool> Editar(long idRolXEmpresa, RolesXEmpresas rolesXEmpresas)
         {
             _dbcontext.TRolesXEmpresas.Add(rolesXEmpresas);
@@ -47,6 +52,7 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
         Task<long> Agregar(RolesXEmpresas rolesXEmpresas);
         Task<bool> Editar(long idRolXEmpresa, RolesXEmpresas rolesXEmpresas);
         Task<RolesXEmpresas> ConsultarPorId(long idRolXEmpresa);
+        Task<object?> ConsultarTodos();
         Task Borrar(long idRolXEmpresa);
     }
 }
