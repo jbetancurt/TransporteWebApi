@@ -8,17 +8,18 @@ namespace WebAppTransporte.LogicaDelNegocio.Entidades
     {
 		[Key]
 		public long idOferta { get; set; }
-		public string Codigo { get; set; }
+		public string codigoOferta { get; set; }
 		public long idDestinoInicio { get; set; }
 		public long idDestinoFin { get; set; }
 		public long idEmpresa { get; set; }
-        public long idTipoOferta { get; set; }
-		public string Titulo { get; set; }
-		public string Descripcion { get; set; }
-		public decimal Alto { get; set; }
-		public decimal Ancho { get; set; }
-		public decimal Largo { get; set; }
-		public decimal Toneladas { get; set; }
-		public decimal ValorXTonelada { get; set; }
+        public long idTipoOrientacionDeLaOferta { get; set; }
+		public string tituloOferta { get; set; }
+		public string descripcionOferta { get; set; }
+		public decimal altoOferta { get; set; }
+		public decimal anchoOferta { get; set; }
+		public decimal largoOferta { get; set; }
+		public decimal toneladasOferta { get; set; }
+		public decimal valorXToneladaOferta { get; set; }
     }
 }
+

@@ -34,6 +34,11 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
             return obj == null ? new AccesosControlXPuntos() : obj;
         }
 
+        public async Task<object?> ConsultarTodos()
+        {
+            return await _dbcontext.TAccesosControlXPuntos.ToListAsync();
+        }
+
         public async Task<bool> Editar(long idAccesoControlXPunto, AccesosControlXPuntos accesosControlXPuntos)
         {
             _dbcontext.TAccesosControlXPuntos.Add(accesosControlXPuntos);
@@ -47,6 +52,7 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
         Task<long> Agregar(AccesosControlXPuntos accesosControlXPuntos);
         Task<bool> Editar(long idAccesoControlXPunto, AccesosControlXPuntos accesosControlXPuntos);
         Task<AccesosControlXPuntos> ConsultarPorId(long idAccesoControlXPunto);
+        Task<object?> ConsultarTodos();
         Task Borrar(long idAccesoControlXPunto);
     }
 }

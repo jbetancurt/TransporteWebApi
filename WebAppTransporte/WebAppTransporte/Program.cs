@@ -49,6 +49,7 @@ builder.Services.AddTransient<IPersonasServicios, PersonasServicios>();
 builder.Services.AddTransient<IPersonasXVehiculosServicios, PersonasXVehiculosServicios>();
 builder.Services.AddTransient<IPostuladosXOfertasServicios, PostuladosXOfertasServicios>();
 builder.Services.AddTransient<IRequisitosServicios, RequisitosServicios>();
+builder.Services.AddTransient<IRequisitosXOfertasServicios, RequisitosXOfertasServicios>();
 builder.Services.AddTransient<IRequisitosAdjuntosServicios, RequisitosAdjuntosServicios>();
 builder.Services.AddTransient<IRolesXEmpresasServicios, RolesXEmpresasServicios>();
 builder.Services.AddTransient<IRolXUsuariosServicios, RolXUsuariosServicios>();
