@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace WebAppTransporte.LogicaDelNegocio.Entidades
 {
@@ -8,7 +9,9 @@ namespace WebAppTransporte.LogicaDelNegocio.Entidades
         public long idUsuario { get; set; }
         public long idPersona { get; set; }
         public string nombreUsuario { get; set; }
-        public string claveUsuario { get; set; }
+
+		[JsonIgnore]
+		public string claveUsuario { get; set; }
         public bool estadoUsuario { get; set; }
     }
 }
