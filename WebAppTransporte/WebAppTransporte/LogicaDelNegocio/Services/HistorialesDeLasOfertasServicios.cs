@@ -18,7 +18,7 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
         {
             _dbcontext.THistorialesDeLasOfertas.Add(historialesDeLasOfertas);
             await _dbcontext.SaveChangesAsync();
-            return historialesDeLasOfertas.idistorialesDeLasOfertas;
+            return historialesDeLasOfertas.idHistorialDeLaOferta;
 
         }
 
