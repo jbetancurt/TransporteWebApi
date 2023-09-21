@@ -113,6 +113,19 @@
     <Build Include="Plantillas\TRequisitosXOfertas.sql" />
     <Build Include="Plantillas\Plantillas.sql" />
     <Build Include="Admin\TUsuariosLogeados.sql" />
+    <Build Include="dbo\TLugares.sql" />
+    <Build Include="dbo\TLugaresXOfertas.sql" />
+    <Build Include="Admin\TTiposDeLugaresXOfertas.sql" />
+    <Build Include="Admin\TCarroceriasXTiposDeVehiculosXOfertas.sql" />
+    <Build Include="dbo\TCargasXOfertas.sql" />
+    <Build Include="Admin\TEstadosDeLasOfertas.sql" />
+    <Build Include="dbo\THistorialesDeLasOfertas.sql" />
+    <Build Include="dbo\TNotificacionesXOfertas.sql" />
+    <Build Include="Admin\TTiposDeNotificaciones.sql" />
+    <Build Include="Admin\TEstadosDeLasNotificaciones.sql" />
+    <Build Include="Plantillas\TLugaresXOfertas.sql" />
+    <Build Include="Plantillas\TCarroceriasXTiposDeVehiculosXOfertas.sql" />
+    <Build Include="Plantillas\TCargasXOfertas.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="DatabaseTransporte.refactorlog" />

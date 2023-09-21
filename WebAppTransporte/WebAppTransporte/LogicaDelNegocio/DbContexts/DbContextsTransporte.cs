@@ -12,11 +12,22 @@ namespace WebAppTransporte.LogicaDelNegocio.DbContexts
         }
         public DbSet<Adjuntos> TAdjuntos { get; set; }
         public DbSet<CarroceriasXTiposDeVehiculos> TCarroceriasXTiposDeVehiculos { get; set; }
+        public DbSet<CarroceriasXTiposDeVehiculosXOfertas> TCarroceriasXTiposDeVehiculosXOfertas { get; set; }
+        public DbSet<CargasXOfertas> TCargasXOfertas { get; set; }
         public DbSet<Ciudades> TCiudades { get; set; }
         public DbSet<ControlesXPuntos> TControlesXPuntos { get; set; }
         public DbSet<Departamentos> TDepartamentos { get; set; }
         public DbSet<EstadosPorRutas> TEstadosPorRutas { get; set; }
+        public DbSet<EstadosDeLasOfertas> TEstadosDeLasOfertas { get; set; }
+        public DbSet<EstadosDeLasNotificaciones> TEstadosDeLasNotificaciones { get; set; }
+        
+        public DbSet<HistorialesDeLasOfertas> THistorialesDeLasOfertas { get; set; }
+        public DbSet<Plantillas_LugaresXOfertas> TPlantillas_LugaresXOfertas { get; set; }
+        public DbSet<Plantillas_CargasXOfertas> TPlantillas_CargasXOfertas { get; set; }
+        public DbSet<Plantillas_CarroceriasXTiposDeVehiculosXOfertas> TPlantillas_CarroceriasXTiposDeVehiculosXOfertas { get; set; }
+        
         public DbSet<Menus> TMenus { get; set; }
+        public DbSet<NotificacionesXOfertas> TNotificacionesXOfertas { get; set; }
         public DbSet<Paises> TPaises { get; set; }
         public DbSet<Roles> TRoles { get; set; }
         public DbSet<TiposDeAccionesEnDestinoDeLaRuta> TTiposDeAccionesEnDestinoDeLaRuta { get; set; }
@@ -24,15 +35,20 @@ namespace WebAppTransporte.LogicaDelNegocio.DbContexts
         public DbSet<TiposDeCarrocerias> TTiposDeCarrocerias { get; set; }
         public DbSet<TiposDeDocumentos> TTiposDeDocumentos { get; set; }
         public DbSet<TiposDeEmpresas> TTiposDeEmpresas { get; set; }
+
+        public DbSet<TiposDeNotificaciones> TTiposDeNotificaciones { get; set; }
         public DbSet<TiposDePersonasPorVehiculos> TTiposDePersonasPorVehiculos { get; set; }
         public DbSet<TiposDePuntosDeControl> TTiposDePuntosDeControl { get; set; }
         public DbSet<TiposDeRequisitos> TTiposDeRequisitos { get; set; }
         public DbSet<TiposDeRoles> TTiposDeRoles { get; set; }
         public DbSet<TiposDeVehiculos> TTiposDeVehiculos { get; set; }
+        public DbSet<TiposDeLugaresXOfertas> TTiposDeLugaresXOfertas { get; set; }
         public DbSet<TiposOrientacionesDeLaOferta> TTiposOrientacionesDeLaOferta { get; set; }
         public DbSet<AccesosControlXPuntos> TAccesosControlXPuntos { get; set; }
         public DbSet<DesplazamientosXRutasXVehiculos> TDesplazamientosXRutasXVehiculos { get; set; }
         public DbSet<Destinos> TDestinos { get; set; }
+        public DbSet<Lugares> TLugares { get; set; }
+        public DbSet<LugaresXOfertas> TLugaresXOfertas { get; set; }
         public DbSet<DestinosXEmpresas> TDestinosXEmpresas { get; set; }
         public DbSet<DestinosXRutasXVehiculos> TDestinosXRutasXVehiculos { get; set; }
         public DbSet<Empresas> TEmpresas { get; set; }
