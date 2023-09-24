@@ -17,4 +17,3 @@ namespace WebAppTransporte.LogicaDelNegocio.Entidades
        
     }
 }
-

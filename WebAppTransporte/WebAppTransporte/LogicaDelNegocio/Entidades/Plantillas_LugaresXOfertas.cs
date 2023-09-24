@@ -15,10 +15,15 @@ namespace WebAppTransporte.LogicaDelNegocio.Entidades
         public long idPersona { get; set; }
         public long idCiudad { get; set; }
         public long idTipoDeLugarXOferta { get; set; }
-        public long nombrePlantillaLugarXOferta { get; set; }
-        public string nombreLugar { get; set; }
-        public string observacionLugar { get; set; }
-        public string telefonoLugar { get; set; }
-        public string direccionLugar { get; set; }
+        public string nombrePlantillaLugarXOferta { get; set; }
+        public int ordenLugarXOferta { get; set; }
+        public string nombreLugarXOferta { get; set; }
+        public string observacionLugarXOferta { get; set; }
+        public string telefonoLugarXOferta { get; set; }
+        public string direccionLugarXOferta { get; set; }
+        
     }
 }
+
+	 
+     

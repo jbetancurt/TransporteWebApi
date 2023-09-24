@@ -10,5 +10,5 @@
 	tarifaCargaXOferta decimal,
 	totalCargaXOferta decimal,
 	primary key (idCargaXOferta),
-    FOREIGN KEY (idOferta) REFERENCES TOfertas(idOferta), 
+    FOREIGN KEY (idOferta) REFERENCES Plantillas.TOfertas(idOferta), 
 )

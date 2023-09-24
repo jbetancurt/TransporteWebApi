@@ -25,6 +25,8 @@ builder.Services.AddTransient<ICiudadesServicios, CiudadesServicios>();
 builder.Services.AddTransient<IControlesXPuntosServicios, ControlesXPuntosServicios>();
 builder.Services.AddTransient<IDepartamentosServicios, DepartamentosServicios>();
 builder.Services.AddTransient<IEstadosPorRutasServicios, EstadosPorRutasServicios>();
+builder.Services.AddTransient<IEstadosDeLasOfertasServicios, EstadosDeLasOfertasServicios>();
+builder.Services.AddTransient<IEstadosDeLasNotificacionesServicios, EstadosDeLasNotificacionesServicios>();
 builder.Services.AddTransient<IMenusServicios, MenusServicios>();
 builder.Services.AddTransient<IPaisesServicios, PaisesServicios>();
 builder.Services.AddTransient<IRolesServicios, RolesServicios>();
@@ -63,8 +65,15 @@ builder.Services.AddTransient<IVehiculosServicios, VehiculosServicios>();
 builder.Services.AddTransient<IVehiculosXEmpresasServicios, VehiculosXEmpresasServicios>();
 builder.Services.AddTransient<IPlantillas_OfertasServicios, Plantillas_OfertasServicios>();
 builder.Services.AddTransient<IPlantillas_RequisitosXOfertasServicios, Plantillas_RequisitosXOfertasServicios>();
-
-
+builder.Services.AddTransient<IPlantillas_CargasXOfertasServicios, Plantillas_CargasXOfertasServicios>();
+builder.Services.AddTransient<IPlantillas_CarroceriasXTiposDeVehiculosXOfertasServicios, Plantillas_CarroceriasXTiposDeVehiculosXOfertasServicios>();
+builder.Services.AddTransient<IPlantillas_LugaresXOfertasServicios, Plantillas_LugaresXOfertasServicios>();
+builder.Services.AddTransient<ILugaresServicios, LugaresServicios>();
+builder.Services.AddTransient<ILugaresXOfertasServicios, LugaresXOfertasServicios>();
+builder.Services.AddTransient<ICargasXOfertasServicios, CargasXOfertasServicios>();
+builder.Services.AddTransient<ICarroceriasXTiposDeVehiculosXOfertasServicios, CarroceriasXTiposDeVehiculosXOfertasServicios>();
+builder.Services.AddTransient<ITiposDeNotificacionesServicios, TiposDeNotificacionesServicios>();
+builder.Services.AddTransient<ITiposDeLugaresXOfertasServicios, TiposDeLugaresXOfertasServicios>();
 
 
 
