@@ -4,6 +4,7 @@
 	idEmpresa bigint not null,
 	idPersona bigint not null,
 	idCiudad bigint not null,
+    nombreLugar varchar(400) not null,
 	observacionLugar varchar(max),
 	telefonoLugar varchar(100),
 	direccionLugar varchar(100),

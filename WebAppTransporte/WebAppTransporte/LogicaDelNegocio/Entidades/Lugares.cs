@@ -9,6 +9,7 @@ namespace WebAppTransporte.LogicaDelNegocio.Entidades
         public long idEmpresa { get; set; }
         public long idPersona { get; set; }
         public long idCiudad { get; set; }
+        public string nombreLugar { get; set; }
         public string observacionLugar { get; set; }
         public string telefonoLugar { get; set; }
         public string direccionLugar { get; set; }
@@ -16,5 +17,4 @@ namespace WebAppTransporte.LogicaDelNegocio.Entidades
 }
 
 
-       
-   
+
