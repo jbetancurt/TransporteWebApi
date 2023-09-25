@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using WebAppTransporte.LogicaDelNegocio.Entidades;
 using WebAppTransporte.LogicaDelNegocio.Entidades.Autenticacion;
 

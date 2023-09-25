@@ -28,7 +28,13 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
             await _dbcontext.SaveChangesAsync();
         }
 
-        public async Task<Usuarios> ConsultarPorId(long idUsuario)
+		public async Task<Usuarios> ConsultarPorCodigoExterno(string codigo)
+		{
+			var obj = await _dbcontext.TUsuarios.FirstOrDefaultAsync(x => x.codigoExternoUsuario == codigo);
+			return obj == null ? new Usuarios() : obj;
+		}
+
+		public async Task<Usuarios> ConsultarPorId(long idUsuario)
         {
             var obj = await _dbcontext.TUsuarios.FirstOrDefaultAsync(x => x.idUsuario == idUsuario);
             return obj == null ? new Usuarios() : obj;
@@ -51,8 +57,9 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
     {
         Task<long> Agregar(Usuarios usuarios);
         Task<bool> Editar(long idUsuario, Usuarios usuarios);
-        Task<Usuarios> ConsultarPorId(long idUsuario);
-        Task<object?> ConsultarTodos();
+		Task<Usuarios> ConsultarPorId(long idUsuario);
+		Task<Usuarios> ConsultarPorCodigoExterno(string codigo);
+		Task<object?> ConsultarTodos();
         Task Borrar(long idUsuario);
     }
 }

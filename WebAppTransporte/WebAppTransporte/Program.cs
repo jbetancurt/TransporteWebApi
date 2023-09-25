@@ -1,4 +1,9 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+//using Microsoft.AspNetCore.Authentication.JwtBearer;
+using WebAppTransporte.Autorizacion;
 using WebAppTransporte.LogicaDelNegocio.DbContexts;
 using WebAppTransporte.LogicaDelNegocio.Entidades;
 using WebAppTransporte.LogicaDelNegocio.Services;
@@ -74,6 +79,7 @@ builder.Services.AddTransient<ICargasXOfertasServicios, CargasXOfertasServicios>
 builder.Services.AddTransient<ICarroceriasXTiposDeVehiculosXOfertasServicios, CarroceriasXTiposDeVehiculosXOfertasServicios>();
 builder.Services.AddTransient<ITiposDeNotificacionesServicios, TiposDeNotificacionesServicios>();
 builder.Services.AddTransient<ITiposDeLugaresXOfertasServicios, TiposDeLugaresXOfertasServicios>();
+builder.Services.AddTransient<IJwtUtils, JwtUtils>();
 
 
 
@@ -81,17 +87,41 @@ builder.Services.AddTransient<ITiposDeLugaresXOfertasServicios, TiposDeLugaresXO
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy(name: "TransporteWebCORS",
-                      builder =>
-                      {
-                          builder
-                             .AllowAnyOrigin()
-                             .AllowAnyMethod()
-                             .AllowAnyHeader();
-                      });
+	options.AddPolicy(name: "TransporteWebCORS",
+					  builder =>
+					  {
+						  builder
+							 .AllowAnyOrigin()
+							 .AllowAnyMethod()
+							 .AllowAnyHeader()
+							 .WithOrigins("http://localhost:4200", "https://localhost:4200");
+					  });
 });
+builder.Services.AddAuthentication(options =>
+{
+	options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+	options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+	options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(o =>
+{
+	o.TokenValidationParameters = new TokenValidationParameters
+	{
+		ValidIssuer = builder.Configuration["Jwt:Issuer"],
+		ValidAudience = builder.Configuration["Jwt:Audience"],
+		IssuerSigningKey = new SymmetricSecurityKey
+		(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"])),
+		ValidateIssuer = true,
+		ValidateAudience = true,
+		ValidateLifetime = false,
+		ValidateIssuerSigningKey = true
+	};
+});
+builder.Services.AddAuthorization();
+
+
 
 var app = builder.Build();
+//app.UseJwtMiddlewares();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -101,9 +131,13 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
 app.MapControllers();
 app.UseCors("TransporteWebCORS");
+
+app.UseAuthorization();
+//
+// custom jwt auth middleware
+//app.UseMiddleware<JwtMiddleware>();
+
+
 app.Run();

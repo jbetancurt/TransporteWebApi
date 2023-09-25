@@ -7,7 +7,8 @@ namespace WebAppTransporte.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class MenusController : ControllerBase
+	[Helpers.TransporteAuthorize()]
+	public class MenusController : ControllerBase
     {
         private readonly IMenusServicios _menusServicios;
         public MenusController(IMenusServicios menusServicios)
