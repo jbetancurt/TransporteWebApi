@@ -6,5 +6,6 @@
 	claveUsuario varchar(50),
 	estadoUsuario bit
 	primary key (idUsuario),
+    [codigoExternoUsuario] VARCHAR(200) NULL, 
     FOREIGN KEY (idPersona) REFERENCES TPersonas(idPersona) 
 )

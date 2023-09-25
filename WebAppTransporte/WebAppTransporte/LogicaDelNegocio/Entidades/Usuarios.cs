@@ -13,5 +13,6 @@ namespace WebAppTransporte.LogicaDelNegocio.Entidades
 		[JsonIgnore]
 		public string claveUsuario { get; set; }
         public bool estadoUsuario { get; set; }
+		public string codigoExternoUsuario { get; set; }
     }
 }

@@ -7,7 +7,8 @@ namespace WebAppTransporte.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class OfertasController : ControllerBase
+	[Helpers.TransporteAuthorize()]
+	public class OfertasController : ControllerBase
     {
         private readonly IOfertasServicios _ofertasServicios;
         public OfertasController(IOfertasServicios ofertasServicios)
