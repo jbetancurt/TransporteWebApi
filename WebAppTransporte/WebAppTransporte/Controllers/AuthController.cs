@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json.Linq;
+using System;
 using System.Dynamic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Net.Http.Headers;
@@ -12,6 +13,7 @@ using System.Text.Json;
 using WebAppTransporte.Helpers;
 using WebAppTransporte.LogicaDelNegocio.Entidades;
 using WebAppTransporte.LogicaDelNegocio.Services;
+using WebAppTransporte.Models.Usuarios.Google;
 using WebAppTransporte.Models.Usuarios.MSN;
 
 namespace WebAppTransporte.Controllers
@@ -30,6 +32,13 @@ namespace WebAppTransporte.Controllers
 		private readonly string Scope;
 		private readonly string RedirectURI;
 		private readonly string API_EndPoint;
+
+
+		private readonly string GoogleTokenEndPoint;
+		private readonly string GoogleClientId;
+		private readonly string GoogleSecret;
+		private readonly string GoogleRedirectURI;
+		private readonly string GoogleAPI_EndPoint;
 		public AuthController(
 			IConfiguration configuration,
 			IUsuariosServicios iUsuariosServicios
@@ -44,6 +53,13 @@ namespace WebAppTransporte.Controllers
 			this.Scope = configuration["OAuth:Scope"] ?? "";
 			this.RedirectURI = configuration["OAuth:RedirectURI"] ?? "";
 			this.API_EndPoint = configuration["OAuth:API_EndPoint"] ?? "";
+
+
+			this.GoogleTokenEndPoint = configuration["OAuthGoogle:TokenEndPoint"] ?? "";
+			this.GoogleClientId = configuration["OAuthGoogle:ClientId"] ?? "";
+			this.GoogleSecret = configuration["OAuthGoogle:Secret"] ?? "";
+			this.GoogleRedirectURI = configuration["OAuthGoogle:RedirectURI"] ?? "";
+			this.GoogleAPI_EndPoint = configuration["OAuthGoogle:API_EndPoint"] ?? "";
 		}
 		[HttpGet("getcode")]
 		public IActionResult GetCode()
@@ -90,12 +106,68 @@ namespace WebAppTransporte.Controllers
 			ojJSON.autenticado = false;
 			if (response1.IsSuccessStatusCode)
 			{
-				var jsUsuarioMSN = Newtonsoft.Json.JsonConvert.DeserializeObject< UsuarioMSN>(await response1.Content.ReadAsStringAsync());
+				var usrMSNAzure = await response1.Content.ReadAsStringAsync();
+				var jsUsuarioMSN = Newtonsoft.Json.JsonConvert.DeserializeObject< UsuarioMSN>(usrMSNAzure);
 
 				status = $"{(int)response1.StatusCode} {response1.ReasonPhrase}";
 				if (!string.IsNullOrEmpty(jsUsuarioMSN?.id))
 				{
 					var usuario = await iUsuariosServicios.ConsultarPorCodigoExterno(jsUsuarioMSN.id);
+					var respuesta = generateJwtToken(usuario);
+					ojJSON.respuesta = respuesta;
+					ojJSON.autenticado = true;
+					return Ok(ojJSON);
+				}
+				else return Ok(ojJSON);
+			}
+			else
+			{
+				return Ok(ojJSON);
+			}
+		}
+
+		[HttpPost("authgoogle")]
+		public async Task<IActionResult> AutenticarGoogle([FromBody] loginRequest modelo)
+		{
+			string grant_type = "authorization_code";
+			string stringURI = new Uri(this.GoogleRedirectURI).ToString();
+			Dictionary<string, string> BodyData = new Dictionary<string, string>()
+			{
+				//{"Content-Type", "application/x-www-form-urlencoded" },
+				{ "code", modelo.code },
+				{ "client_id", this.GoogleClientId },
+				{ "client_secret", this.GoogleSecret },
+				{ "redirect_uri", stringURI },
+				{ "grant_type", grant_type }
+			};
+			HttpClient client = new HttpClient();
+			var body = new FormUrlEncodedContent(BodyData);
+			//client.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", "application/x-www-form-urlencoded");
+
+			var response = await client.PostAsync(this.GoogleTokenEndPoint, body);
+			var status = $"{(int)response.StatusCode} {response.ReasonPhrase}";
+
+			var jsonCOntent = await response.Content.ReadFromJsonAsync<JsonElement>();
+
+			var prettyJson = JsonSerializer.Serialize(jsonCOntent, new JsonSerializerOptions { WriteIndented = true });
+
+			var accesToken = JsonDocument.Parse(prettyJson).RootElement.GetProperty("access_token").GetString();
+			var httpClient = new HttpClient();
+			//httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accesToken);
+			string DatosUsuarioGoogle = this.GoogleAPI_EndPoint + accesToken;
+			var response1 = await httpClient.GetAsync(DatosUsuarioGoogle);
+			dynamic ojJSON = new ExpandoObject();
+			ojJSON.respuesta = "";
+			ojJSON.autenticado = false;
+			if (response1.IsSuccessStatusCode)
+			{
+				var s = await response1.Content.ReadAsStringAsync();
+				var jsUsuarioGoogle = Newtonsoft.Json.JsonConvert.DeserializeObject<UsuarioGoogle>(s);
+
+				status = $"{(int)response1.StatusCode} {response1.ReasonPhrase}";
+				if (!string.IsNullOrEmpty(jsUsuarioGoogle?.sub))
+				{
+					var usuario = await iUsuariosServicios.ConsultarPorCodigoExterno(jsUsuarioGoogle.sub);
 					var respuesta = generateJwtToken(usuario);
 					ojJSON.respuesta = respuesta;
 					ojJSON.autenticado = true;
