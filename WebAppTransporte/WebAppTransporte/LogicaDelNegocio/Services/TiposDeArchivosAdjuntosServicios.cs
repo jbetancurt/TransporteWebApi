@@ -41,12 +41,11 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
             await _dbcontext.SaveChangesAsync();
             return true;
         }
-
-        public async Task<object?> ConsultarTodos()
+        public async Task<List<TiposDeArchivosAdjuntos>> ConsultarTodos()
         {
-            var obj = await _dbcontext.TTiposDeArchivosAdjuntos.ToListAsync();
-            return obj == null ? new TiposDeArchivosAdjuntos() : obj;
+            return await _dbcontext.TTiposDeArchivosAdjuntos.ToListAsync();
         }
+                
     }
     public interface ITiposDeArchivosAdjuntosServicios
     {
@@ -54,6 +53,6 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
         Task<bool> Editar(long idTipoDeArchivoAdjunto, TiposDeArchivosAdjuntos tiposDeArchivosAdjuntos);
         Task<TiposDeArchivosAdjuntos> ConsultarPorId(long idTipoDeArchivoAdjunto);
         Task Borrar(long idTipoDeArchivoAdjunto);
-        Task<object?> ConsultarTodos();
+        Task<List<TiposDeArchivosAdjuntos>> ConsultarTodos();
     }
 }

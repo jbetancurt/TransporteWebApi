@@ -42,7 +42,7 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
             return true;
         }
 
-        public async Task<object?> ConsultarTodos()
+        public async Task<List<Roles>> ConsultarTodos()
         {
             return await _dbcontext.TRoles.ToListAsync();
         }
@@ -53,6 +53,6 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
         Task<bool> Editar(long idRol, Roles roles);
         Task<Roles> ConsultarPorId(long idRol);
         Task Borrar(long idRol);
-        Task<object?> ConsultarTodos();
+        Task<List<Roles>> ConsultarTodos();
     }
 }

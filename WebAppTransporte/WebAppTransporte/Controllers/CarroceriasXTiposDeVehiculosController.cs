@@ -24,6 +24,15 @@ namespace WebAppTransporte.Controllers
         }
 
         [HttpGet]
+        [Route("ConsultarPorTipoDeVehiculo/{idTipoDeVehiculo}")]
+        public async Task<IActionResult> ConsultarPorTipoDeVehiculo(int idTipoDeVehiculo)
+        {
+
+            return Ok(await _carroceriasXTiposDeVehiculosServicios.ConsultarPorTipoDeVehiculo(idTipoDeVehiculo));
+        }
+
+       
+        [HttpGet]
         [Route("")]
         public async Task<IActionResult> GetAll()
         {

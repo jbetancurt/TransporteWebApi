@@ -28,6 +28,13 @@ namespace WebAppTransporte.Controllers
         {
             return Ok(await _cargasXOfertasServicios.ConsultarTodos());
         }
+        [HttpGet]
+        [Route("consultarxoferta/{idOferta}")]
+        public async Task<IActionResult> ConsultarXOferta(long idOferta)
+        {
+
+            return Ok(await _cargasXOfertasServicios.ConsultarXOferta(idOferta));
+        }
         [HttpPut]
         [Route("{id}")]
         public async Task<IActionResult> Put(int id, [FromBody] CargasXOfertas obj)

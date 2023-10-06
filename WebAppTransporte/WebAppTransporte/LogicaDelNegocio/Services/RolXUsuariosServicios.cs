@@ -34,7 +34,7 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
             return obj == null ? new RolXUsuarios() : obj;
         }
 
-        public async Task<object?> ConsultarTodos()
+        public async Task<List<RolXUsuarios>> ConsultarTodos()
         {
             return await _dbcontext.TRolXUsuarios.ToListAsync();
         }
@@ -52,7 +52,7 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
         Task<long> Agregar(RolXUsuarios rolXUsuarios);
         Task<bool> Editar(long idRolXUsuario, RolXUsuarios rolXUsuarios);
         Task<RolXUsuarios> ConsultarPorId(long idRolXUsuario);
-        Task<object?> ConsultarTodos();
+        Task<List<RolXUsuarios>> ConsultarTodos();
         Task Borrar(long idRolXUsuario);
     }
 }

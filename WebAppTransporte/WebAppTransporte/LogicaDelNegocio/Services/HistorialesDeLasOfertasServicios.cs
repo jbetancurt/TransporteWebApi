@@ -35,7 +35,7 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
             return obj == null ? new HistorialesDeLasOfertas() : obj;
         }
 
-        public async Task<object?> ConsultarTodos()
+        public async Task<List<HistorialesDeLasOfertas>> ConsultarTodos()
         {
             return await _dbcontext.THistorialesDeLasOfertas.ToListAsync();
         }
@@ -53,7 +53,7 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
         Task<long> Agregar(HistorialesDeLasOfertas historialesDeLasOfertas);
         Task<bool> Editar(long idHistorialDeLaOferta, HistorialesDeLasOfertas historialesDeLasOfertas);
         Task<HistorialesDeLasOfertas> ConsultarPorId(long idHistorialDeLaOferta);
-        Task<object?> ConsultarTodos();
+        Task<List<HistorialesDeLasOfertas>> ConsultarTodos();
         Task Borrar(long idHistorialDeLaOferta);
     }
 }

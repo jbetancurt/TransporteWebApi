@@ -7,4 +7,11 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="IdUsuarioLogeado" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="7092a503-c7ec-420e-a008-44f7244672b6" ChangeDateTime="09/30/2023 18:25:18">
+    <Property Name="ElementName" Value="[Admin].[TTiposDeLugaresXOfertas].[Enumerador]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[Admin].[TTiposDeLugaresXOfertas]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="enumerador" />
+  </Operation>
 </Operations>

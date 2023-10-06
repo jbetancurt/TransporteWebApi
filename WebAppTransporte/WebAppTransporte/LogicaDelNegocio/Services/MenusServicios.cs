@@ -38,7 +38,7 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
             return obj == null ? new Menus() : obj;
         }
 
-        public async Task<object?> ConsultarTodos()
+        public async Task<List<Menus>> ConsultarTodos()
         {
             return await _dbcontext.TMenus.ToListAsync();
         }
@@ -60,7 +60,7 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
         Task<long> Agregar(Menus menus);
         Task<bool> Editar(long idMenu, Menus menus);
         Task<Menus> ConsultarPorId(long idmenu);
-        Task<object?> ConsultarTodos();
+        Task<List<Menus>> ConsultarTodos();
         Task Borrar(long idmenu);
     }
 }

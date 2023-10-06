@@ -31,6 +31,14 @@ namespace WebAppTransporte.Controllers
             return Ok(await _tiposDeLugaresXOfertasServicios.ConsultarTodos());
         }
 
+        [HttpGet]
+        [Route("ConsultarPorEnum/{enumerador}")]
+        public async Task<IActionResult> ConsultarPorEnum(string enumerador)
+        {
+
+            return Ok(await _tiposDeLugaresXOfertasServicios.ConsultarPorEnum(enumerador));
+        }
+
 
         [HttpPut]
         [Route("{id}")]

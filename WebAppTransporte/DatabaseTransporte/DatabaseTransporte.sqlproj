@@ -116,7 +116,6 @@
     <Build Include="dbo\TLugares.sql" />
     <Build Include="dbo\TLugaresXOfertas.sql" />
     <Build Include="Admin\TTiposDeLugaresXOfertas.sql" />
-    <Build Include="Admin\TCarroceriasXTiposDeVehiculosXOfertas.sql" />
     <Build Include="dbo\TCargasXOfertas.sql" />
     <Build Include="Admin\TEstadosDeLasOfertas.sql" />
     <Build Include="dbo\THistorialesDeLasOfertas.sql" />
@@ -126,6 +125,7 @@
     <Build Include="Plantillas\TLugaresXOfertas.sql" />
     <Build Include="Plantillas\TCarroceriasXTiposDeVehiculosXOfertas.sql" />
     <Build Include="Plantillas\TCargasXOfertas.sql" />
+    <Build Include="dbo\TCarroceriasXTiposDeVehiculosXOfertas.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="DatabaseTransporte.refactorlog" />

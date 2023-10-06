@@ -43,9 +43,15 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
             return true;
         }
 
-        public async Task<object?> ConsultarTodos()
+        public async Task<List<TiposDeLugaresXOfertas>> ConsultarTodos()
         {
             return await _dbcontext.TTiposDeLugaresXOfertas.ToListAsync();
+        }
+
+        public async Task<TiposDeLugaresXOfertas> ConsultarPorEnum(string enumerador)
+        {
+            var obj = await _dbcontext.TTiposDeLugaresXOfertas.Where(x => x.enumerador == enumerador).FirstOrDefaultAsync();
+            return obj == null ? new TiposDeLugaresXOfertas() : obj;
         }
     }
     public interface ITiposDeLugaresXOfertasServicios
@@ -54,6 +60,7 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
         Task<bool> Editar(long idTipoDeLugarXOferta, TiposDeLugaresXOfertas tiposDeLugaresXOfertas);
         Task<TiposDeLugaresXOfertas> ConsultarPorId(long idTipoDeLugarXOferta);
         Task Borrar(long idTipoDeLugarXOferta);
-        Task<object?> ConsultarTodos();
+        Task<List<TiposDeLugaresXOfertas>> ConsultarTodos();
+        Task<TiposDeLugaresXOfertas> ConsultarPorEnum(string enumerador);
     }
 }

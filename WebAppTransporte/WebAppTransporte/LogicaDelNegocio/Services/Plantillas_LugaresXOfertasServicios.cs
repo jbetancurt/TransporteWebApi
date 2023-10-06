@@ -37,7 +37,7 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
             return obj == null ? new Plantillas_LugaresXOfertas() : obj;
         }
 
-        public async Task<object?> ConsultarTodos()
+        public async Task<List<Plantillas_LugaresXOfertas>> ConsultarTodos()
         {
             return await _dbcontext.TPlantillas_LugaresXOfertas.ToListAsync();
         }
@@ -55,7 +55,7 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
         Task<long> Agregar(Plantillas_LugaresXOfertas plantillas_LugaresXOfertas);
         Task<bool> Editar(long idLugarXOferta, Plantillas_LugaresXOfertas plantillas_LugaresXOfertas);
         Task<Plantillas_LugaresXOfertas> ConsultarPorId(long idLugarXOferta);
-        Task<object?> ConsultarTodos();
+        Task<List<Plantillas_LugaresXOfertas>> ConsultarTodos();
         Task Borrar(long idLugar);
     }
 }
