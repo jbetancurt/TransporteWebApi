@@ -44,7 +44,7 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
             return true;
         }
 
-        public async Task<object?> ConsultarTodos()
+        public async Task<List<TiposDeNotificaciones>> ConsultarTodos()
         {
             return await _dbcontext.TTiposDeNotificaciones.ToListAsync();
         }
@@ -55,6 +55,6 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
         Task<bool> Editar(long idTipoDeNotificacion, TiposDeNotificaciones tiposDeNotificaciones);
         Task<TiposDeNotificaciones> ConsultarPorId(long idTipoDeNotificacion);
         Task Borrar(long idTipoDeNotificacion);
-        Task<object?> ConsultarTodos();
+        Task<List<TiposDeNotificaciones>> ConsultarTodos();
     }
 }

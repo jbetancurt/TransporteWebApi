@@ -42,7 +42,7 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
             return true;
         }
 
-        public async Task<object?> ConsultarTodos()
+        public async Task<List<TiposDeVehiculos>> ConsultarTodos()
         {
      
             return await _dbcontext.TTiposDeVehiculos.ToListAsync();
@@ -54,6 +54,6 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
         Task<bool> Editar(long idTipoDeVehiculo, TiposDeVehiculos tiposDeVehiculos);
         Task<TiposDeVehiculos> ConsultarPorId(long idTipoDeVehiculo);
         Task Borrar(long idTipoDeVehiculo);
-        Task<object?> ConsultarTodos();
+        Task<List<TiposDeVehiculos>> ConsultarTodos();
     }
 }

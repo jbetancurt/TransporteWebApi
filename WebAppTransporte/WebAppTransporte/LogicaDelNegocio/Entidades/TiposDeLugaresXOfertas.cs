@@ -9,6 +9,7 @@ namespace WebAppTransporte.LogicaDelNegocio.Entidades
         [Key]
         public long idTipoDeLugarXOferta { get; set; }
         public string nombreTipoDeLugarXOferta { get; set; }
+        public string enumerador { get; set; }
     }
 }
 

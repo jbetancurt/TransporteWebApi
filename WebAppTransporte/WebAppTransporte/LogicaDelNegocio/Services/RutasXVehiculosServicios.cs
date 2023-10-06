@@ -34,7 +34,7 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
             return obj == null ? new RutasXVehiculos() : obj;
         }
 
-        public async Task<object?> ConsultarTodos()
+        public async Task<List<RutasXVehiculos>> ConsultarTodos()
         {
             return await _dbcontext.TRutasXVehiculos.ToListAsync();
         }
@@ -51,7 +51,7 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
         Task<long> Agregar(RutasXVehiculos rutasXVehiculos);
         Task<bool> Editar(long idRutaXVehiculo, RutasXVehiculos rutasXVehiculos);
         Task<RutasXVehiculos> ConsultarPorId(long idRutaXVehiculo);
-        Task<object?> ConsultarTodos();
+        Task<List<RutasXVehiculos>> ConsultarTodos();
         Task Borrar(long idRutaXVehiculo);
     }
 }

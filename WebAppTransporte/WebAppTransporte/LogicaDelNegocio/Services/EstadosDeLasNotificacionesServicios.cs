@@ -36,7 +36,7 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
             return obj == null ? new EstadosDeLasNotificaciones() : obj;
         }
 
-        public async Task<object?> ConsultarTodos()
+        public async Task<List<EstadosDeLasNotificaciones>> ConsultarTodos()
         {
             return await _dbcontext.TEstadosDeLasNotificaciones.ToListAsync();
         }
@@ -54,7 +54,7 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
         Task<long> Agregar(EstadosDeLasNotificaciones estadosDeLasNotificaciones);
         Task<bool> Editar(long idEstadoDeLaNotificacion, EstadosDeLasNotificaciones estadosDeLasNotificaciones);
         Task<EstadosDeLasNotificaciones> ConsultarPorId(long idEstadoDeLaNotificacion);
-        Task<object?> ConsultarTodos();
+        Task<List<EstadosDeLasNotificaciones>> ConsultarTodos();
         Task Borrar(long idLugar);
     }
 }

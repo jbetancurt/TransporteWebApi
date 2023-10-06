@@ -34,12 +34,11 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
             return obj == null ? new TiposDeAccionesEnDestinoDeLaRuta() : obj;
         }
 
-        public async Task<object?> ConsultarTodos()
+        public async Task<List<TiposDeAccionesEnDestinoDeLaRuta>> ConsultarTodos()
         {
-            var obj = await _dbcontext.TTiposDeAccionesEnDestinoDeLaRuta.ToListAsync();
-            return obj == null ? new TiposDeAccionesEnDestinoDeLaRuta() : obj;
+            return await _dbcontext.TTiposDeAccionesEnDestinoDeLaRuta.ToListAsync();
         }
-
+       
         public async Task<bool> Editar(long idTipoDeAccionEnDestinoDeLaRuta, TiposDeAccionesEnDestinoDeLaRuta tiposDeAccionesEnDestinoDeLaRuta)
         {
             _dbcontext.TTiposDeAccionesEnDestinoDeLaRuta.Add(tiposDeAccionesEnDestinoDeLaRuta);
@@ -54,6 +53,6 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
         Task<bool> Editar(long idTipoDeAccionEnDestinoDeLaRuta, TiposDeAccionesEnDestinoDeLaRuta tiposDeAccionesEnDestinoDeLaRuta);
         Task<TiposDeAccionesEnDestinoDeLaRuta> ConsultarPorId(long idTipoDeAccionEnDestinoDeLaRuta);
         Task Borrar(long idTipoDeAccionEnDestinoDeLaRuta);
-        Task<object?> ConsultarTodos();
+        Task<List<TiposDeAccionesEnDestinoDeLaRuta>> ConsultarTodos();
     }
 }

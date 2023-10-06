@@ -44,7 +44,7 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
             return true;
         }
 
-        public async Task<object?> ConsultarTodos()
+        public async Task<List<TiposOrientacionesDeLaOferta>> ConsultarTodos()
         {
             return await _dbcontext.TTiposOrientacionesDeLaOferta.ToListAsync();
         }
@@ -55,6 +55,6 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
         Task<bool> Editar(long idTipoOrientacionDeLaOferta, TiposOrientacionesDeLaOferta tiposOrientacionesDeLaOferta);
         Task<TiposOrientacionesDeLaOferta> ConsultarPorId(long idTipoOrientacionDeLaOferta);
         Task Borrar(long idTipoOrientacionDeLaOferta);
-        Task<object?> ConsultarTodos();
+        Task<List<TiposOrientacionesDeLaOferta>> ConsultarTodos();
     }
 }
