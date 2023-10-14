@@ -40,6 +40,12 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
             return await _dbcontext.TPlantillas_CargasXOfertas.ToListAsync();
         }
 
+        public async Task<List<Plantillas_CargasXOfertas>> ConsultarXOferta(long idOferta)
+        {
+            return await _dbcontext.TPlantillas_CargasXOfertas.Where(x => x.idOferta == idOferta).ToListAsync();
+        }
+
+
         public async Task<bool> Editar(long idCargaXOferta, Plantillas_CargasXOfertas plantillas_CargasXOfertas)
         {
             _dbcontext.TPlantillas_CargasXOfertas.Add(plantillas_CargasXOfertas);
@@ -54,6 +60,7 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
         Task<bool> Editar(long idCargaXOferta, Plantillas_CargasXOfertas plantillas_CargasXOfertas);
         Task<Plantillas_CargasXOfertas> ConsultarPorId(long idCargaXOferta);
         Task<List<Plantillas_CargasXOfertas>> ConsultarTodos();
+        Task<List<Plantillas_CargasXOfertas>> ConsultarXOferta(long idOferta);
         Task Borrar(long idCargaXOferta);
     }
 }

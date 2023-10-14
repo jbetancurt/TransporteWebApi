@@ -40,6 +40,11 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
             return await _dbcontext.TPlantillas_CarroceriasXTiposDeVehiculosXOfertas.ToListAsync();
         }
 
+        public async Task<List<Plantillas_CarroceriasXTiposDeVehiculosXOfertas>> ConsultarXOferta(long idOferta)
+        {
+            return await _dbcontext.TPlantillas_CarroceriasXTiposDeVehiculosXOfertas.Where(x => x.idOferta == idOferta).ToListAsync();
+        }
+
         public async Task<bool> Editar(long idCarroceriaXTipoDeVehiculoXOferta, Plantillas_CarroceriasXTiposDeVehiculosXOfertas plantillas_CarroceriasXTiposDeVehiculosXOfertas)
         {
             _dbcontext.TPlantillas_CarroceriasXTiposDeVehiculosXOfertas.Add(plantillas_CarroceriasXTiposDeVehiculosXOfertas);
@@ -55,6 +60,7 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
         Task<bool> Editar(long idCarroceriaXTipoDeVehiculoXOferta, Plantillas_CarroceriasXTiposDeVehiculosXOfertas plantillas_CarroceriasXTiposDeVehiculosXOfertas);
         Task<Plantillas_CarroceriasXTiposDeVehiculosXOfertas> ConsultarPorId(long idCarroceriaXTipoDeVehiculoXOferta);
         Task<List<Plantillas_CarroceriasXTiposDeVehiculosXOfertas>> ConsultarTodos();
+        Task<List<Plantillas_CarroceriasXTiposDeVehiculosXOfertas>> ConsultarXOferta(long idOferta);
         Task Borrar(long idCarroceriaXTipoDeVehiculoXOferta);
     }
 }
