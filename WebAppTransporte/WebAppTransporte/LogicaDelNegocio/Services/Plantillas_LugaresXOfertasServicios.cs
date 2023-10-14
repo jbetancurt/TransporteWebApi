@@ -42,6 +42,11 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
             return await _dbcontext.TPlantillas_LugaresXOfertas.ToListAsync();
         }
 
+        public async Task<List<Plantillas_LugaresXOfertas>> ConsultarXOferta(long idOferta, long idTipoDeLugarXOferta)
+        {
+            return await _dbcontext.TPlantillas_LugaresXOfertas.Where(x => x.idOferta == idOferta && x.idTipoDeLugarXOferta == idTipoDeLugarXOferta).ToListAsync();
+        }
+
         public async Task<bool> Editar(long idLugarXOferta, Plantillas_LugaresXOfertas plantillas_LugaresXOfertas)
         {
             _dbcontext.TPlantillas_LugaresXOfertas.Add(plantillas_LugaresXOfertas);
@@ -56,6 +61,7 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
         Task<bool> Editar(long idLugarXOferta, Plantillas_LugaresXOfertas plantillas_LugaresXOfertas);
         Task<Plantillas_LugaresXOfertas> ConsultarPorId(long idLugarXOferta);
         Task<List<Plantillas_LugaresXOfertas>> ConsultarTodos();
+        Task<List<Plantillas_LugaresXOfertas>> ConsultarXOferta(long idOferta, long idTipoDeLugarXOferta);
         Task Borrar(long idLugar);
     }
 }

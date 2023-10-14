@@ -10,6 +10,8 @@ namespace WebAppTransporte.LogicaDelNegocio.Entidades
         public long idCargaXOferta { get; set; }
         public long idOferta { get; set; }
         public string nombrePlantillaCargaXOferta { get; set; }
+        public string tipoDeProducto { get; set; }
+        public string unidadDeEmpaque { get; set; }
         public decimal altoCargaXOferta { get; set; }
         public decimal anchoCargaXOferta { get; set; }
         public decimal largoCargaXOferta { get; set; }

@@ -6,10 +6,9 @@ namespace WebAppTransporte.LogicaDelNegocio.Entidades
     {
         [Key]
         public long idRequisito { get; set; }
-        public string nombreRequisito { get; set; }
         public long idEmpresa { get; set; }
-        public bool requeridoRequisito { get; set; }
-        public bool adjuntoRequisito { get; set; }
-        public bool validacionUnicaRequisito { get; set; }
+        public string nombreRequisito { get; set; }
+        public bool requeridoAdjunto { get; set; }
+        
     }
 }

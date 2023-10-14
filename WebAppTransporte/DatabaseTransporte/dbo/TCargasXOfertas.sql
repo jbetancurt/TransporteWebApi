@@ -2,6 +2,8 @@
 (
     idCargaXOferta bigint identity(1,1) not null,
 	idOferta bigint not null,
+	tipoDeProducto varchar(400) not null,
+	unidadDeEmpaque varchar(400) not null,
 	altoCargaXOferta decimal,
 	anchoCargaXOferta decimal,
 	largoCargaXOferta decimal,

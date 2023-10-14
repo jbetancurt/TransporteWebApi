@@ -32,6 +32,14 @@ namespace WebAppTransporte.Controllers
             return Ok(await _plantillas_CarroceriasXTiposDeVehiculosXOfertasServicios.ConsultarTodos());
         }
 
+        [HttpGet]
+        [Route("consultarxoferta/{idOferta}")]
+        public async Task<IActionResult> ConsultarXOferta(long idOferta)
+        {
+
+            return Ok(await _plantillas_CarroceriasXTiposDeVehiculosXOfertasServicios.ConsultarXOferta(idOferta));
+        }
+
 
         [HttpPut]
         [Route("{id}")]

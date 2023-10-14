@@ -8,6 +8,7 @@ namespace WebAppTransporte.LogicaDelNegocio.Entidades
         public long idRequisitoXOferta { get; set; }
         public long idOferta { get; set; }
         public long idRequisito { get; set; }
-        public bool requeridoRequisitoXOferta { get; set; }
+        public string observacion { get; set; }
     }
 }
+
