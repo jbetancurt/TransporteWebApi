@@ -5,7 +5,6 @@
 	idTipoDeVehiculo bigint not null,
 	idTipoDeCarroceria bigint not null,
 	tieneTrailer bit,
-	nombrePlantillaCarroceriaXTipoDeVehiculoXOferta varchar(400) not null,
 	descripcion varchar(400) not null,
 	primary key (idCarroceriaXTipoDeVehiculoXOferta),
     FOREIGN KEY (idOferta) REFERENCES Plantillas.TOfertas(idOferta), 

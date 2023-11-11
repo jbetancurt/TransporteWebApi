@@ -59,5 +59,14 @@ namespace WebAppTransporte.Controllers
             await _requisitosXOfertasServicios.Borrar(id);
             return Ok();
         }
+
+        [HttpDelete]
+        [Route("borrarporidoferta/{idOferta}")]
+        public async Task<IActionResult> BorrarPorIdOferta(long idOferta)
+        {
+            await _requisitosXOfertasServicios.BorrarPorIdOferta(idOferta);
+            return Ok();
+        }
+
     }
 }

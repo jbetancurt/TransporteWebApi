@@ -29,6 +29,13 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
             await _dbcontext.SaveChangesAsync();
         }
 
+        public async Task BorrarPorIdOferta(long idOferta)
+        {
+            var obj = await _dbcontext.TPlantillas_CargasXOfertas.Where(x => x.idOferta == idOferta).ToListAsync();
+            _dbcontext.TPlantillas_CargasXOfertas.RemoveRange(obj);
+            await _dbcontext.SaveChangesAsync();
+        }
+
         public async Task<Plantillas_CargasXOfertas> ConsultarPorId(long idCargaXOferta)
         {
             var obj = await _dbcontext.TPlantillas_CargasXOfertas.FirstOrDefaultAsync(x => x.idCargaXOferta == idCargaXOferta);
@@ -62,5 +69,6 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
         Task<List<Plantillas_CargasXOfertas>> ConsultarTodos();
         Task<List<Plantillas_CargasXOfertas>> ConsultarXOferta(long idOferta);
         Task Borrar(long idCargaXOferta);
+        Task BorrarPorIdOferta(long idOferta);
     }
 }

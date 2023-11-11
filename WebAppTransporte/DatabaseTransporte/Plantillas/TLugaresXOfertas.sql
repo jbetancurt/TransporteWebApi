@@ -6,7 +6,7 @@
 	idPersona bigint not null,
 	idCiudad bigint not null,
 	idTipoDeLugarXOferta  bigint not null,
-	nombrePlantillaLugarXOferta varchar(200),
+	
 	ordenLugarXOferta int not null,
 	nombreLugarXOferta varchar(200),
 	observacionLugarXOferta varchar(max),

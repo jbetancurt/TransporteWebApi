@@ -6,12 +6,12 @@
 	idPersona bigint not null,
 	idCiudad bigint not null,
 	idTipoDeLugarXOferta  bigint not null,
-	ordenLugarXOferta int not null,
+	ordenLugarXOferta int,
 	nombreLugarXOferta varchar(200),
 	observacionLugarXOferta varchar(max),
 	telefonoLugarXOferta varchar(100),
 	direccionLugarXOferta varchar(100),
-	fechaEnElLugar date not null,
+	fechaEnElLugar date,
 	duracionEnLugarXOferta int, --Duración en minutos
 	location GEOGRAPHY,
 

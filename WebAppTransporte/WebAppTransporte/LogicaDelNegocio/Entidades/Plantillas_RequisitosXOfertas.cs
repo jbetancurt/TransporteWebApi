@@ -11,5 +11,7 @@ namespace WebAppTransporte.LogicaDelNegocio.Entidades
         public long idOferta { get; set; }
         public long idRequisito { get; set; }
         public string observacion { get; set; }
+       
+
     }
 }

@@ -126,6 +126,7 @@
     <Build Include="Plantillas\TCarroceriasXTiposDeVehiculosXOfertas.sql" />
     <Build Include="Plantillas\TCargasXOfertas.sql" />
     <Build Include="dbo\TCarroceriasXTiposDeVehiculosXOfertas.sql" />
+    <Build Include="Admin\TTiposDePlantillasOfertas.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="DatabaseTransporte.refactorlog" />
