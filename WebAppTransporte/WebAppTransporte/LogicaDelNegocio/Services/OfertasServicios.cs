@@ -39,6 +39,12 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
         {
             return await _dbcontext.TOfertas.ToListAsync();
         }
+
+        public async Task<List<Ofertas>> ConsultarXIdEmpresa(long idEmpresa)
+        {
+            return await _dbcontext.TOfertas.Where(x => x.idEmpresa == idEmpresa).ToListAsync();
+        }
+
         public async Task<bool> Editar(long idOferta, Ofertas ofertas)
         {
             _dbcontext.TOfertas.Add(ofertas);
@@ -53,6 +59,7 @@ namespace WebAppTransporte.LogicaDelNegocio.Services
         Task<bool> Editar(long idOferta, Ofertas ofertas);
         Task<Ofertas> ConsultarPorId(long idOferta);
         Task<List<Ofertas>> ConsultarTodos();
+        Task<List<Ofertas>> ConsultarXIdEmpresa(long idEmpresa);
         Task Borrar(long idOferta);
     }
 }

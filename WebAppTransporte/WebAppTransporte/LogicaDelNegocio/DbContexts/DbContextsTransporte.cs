@@ -45,6 +45,7 @@ namespace WebAppTransporte.LogicaDelNegocio.DbContexts
         public DbSet<TiposDeVehiculos> TTiposDeVehiculos { get; set; }
         public DbSet<TiposDeLugaresXOfertas> TTiposDeLugaresXOfertas { get; set; }
         public DbSet<TiposOrientacionesDeLaOferta> TTiposOrientacionesDeLaOferta { get; set; }
+        public DbSet<TiposDePlantillasOfertas> TTiposDePlantillasOfertas { get; set; }
         public DbSet<AccesosControlXPuntos> TAccesosControlXPuntos { get; set; }
         public DbSet<DesplazamientosXRutasXVehiculos> TDesplazamientosXRutasXVehiculos { get; set; }
         public DbSet<Destinos> TDestinos { get; set; }

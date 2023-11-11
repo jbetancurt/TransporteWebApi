@@ -10,7 +10,7 @@ namespace WebAppTransporte.LogicaDelNegocio.Entidades
         public long idOferta { get; set; }
         public long idEmpresa { get; set; }
         public long idTipoOrientacionDeLaOferta { get; set; }
-        public long idEstadoDeLaOferta { get; set; }
+        public long idTipoDePlantillaOferta { get; set; }
         public string nombrePlantillaOferta { get; set; }
         public string tituloOferta { get; set; }
         public string descripcionOferta { get; set; }

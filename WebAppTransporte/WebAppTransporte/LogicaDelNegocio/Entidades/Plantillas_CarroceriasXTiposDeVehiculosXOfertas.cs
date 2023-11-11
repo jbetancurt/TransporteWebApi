@@ -12,7 +12,6 @@ namespace WebAppTransporte.LogicaDelNegocio.Entidades
         public long idTipoDeVehiculo { get; set; }
         public long idTipoDeCarroceria { get; set; }
         public bool tieneTrailer { get; set; }
-        public string nombrePlantillaCarroceriaXTipoDeVehiculoXOferta { get; set; }
         public string descripcion { get; set; }
     }
 }

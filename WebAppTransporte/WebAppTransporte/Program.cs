@@ -46,6 +46,7 @@ builder.Services.AddTransient<ITiposDeRequisitosServicios, TiposDeRequisitosServ
 builder.Services.AddTransient<ITiposDeRolesServicios, TiposDeRolesServicios>();
 builder.Services.AddTransient<ITiposDeVehiculosServicios, TiposDeVehiculosServicios>();
 builder.Services.AddTransient<ITiposOrientacionesDeLaOfertaServicios, TiposOrientacionesDeLaOfertaServicios>();
+
 builder.Services.AddTransient<IAccesosControlXPuntosServicios, AccesosControlXPuntosServicios>();
 builder.Services.AddTransient<IDesplazamientosXRutasXVehiculosServicios, DesplazamientosXRutasXVehiculosServicios>();
 builder.Services.AddTransient<IDestinosServicios, DestinosServicios>();
@@ -79,6 +80,7 @@ builder.Services.AddTransient<ICargasXOfertasServicios, CargasXOfertasServicios>
 builder.Services.AddTransient<ICarroceriasXTiposDeVehiculosXOfertasServicios, CarroceriasXTiposDeVehiculosXOfertasServicios>();
 builder.Services.AddTransient<ITiposDeNotificacionesServicios, TiposDeNotificacionesServicios>();
 builder.Services.AddTransient<ITiposDeLugaresXOfertasServicios, TiposDeLugaresXOfertasServicios>();
+builder.Services.AddTransient<ITiposDePlantillasOfertasServicios, TiposDePlantillasOfertasServicios>();
 builder.Services.AddTransient<IJwtUtils, JwtUtils>();
 
 
